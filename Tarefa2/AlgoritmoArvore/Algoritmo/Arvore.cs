@@ -54,24 +54,24 @@ namespace AlgoritmoArvore.Algoritmo
 
         public override string ToString()
         {
-            int qtdEspacosLados = 4 * TamanhoMaiorGalho;
-            int qtdEspacosMeio = 4;
+            int qtdEspacosLado = 3 * TamanhoMaiorGalho - 1;
+            int qtdEspacosMeio = 1;
 
-            string arvore = string.Format("{0}{1}{0}\n", espacos(qtdEspacosLados), Raiz.ToString());
+            string arvore = string.Format("{0}{1}\n", espacos(qtdEspacosLado), Raiz.ToString());
 
             for (int i = 0; i < TamanhoMaiorGalho; i++)
             {
-                arvore += $"{espacos(qtdEspacosLados)}/{espacos(qtdEspacosMeio)}\\\n";
-                qtdEspacosLados -= 1;
-                qtdEspacosMeio += 4 - (GalhoEsquerda.ObterNumero(i) + "").Length  - (GalhoDireita.ObterNumero(i) + "").Length;
-                arvore += $"{espacos(qtdEspacosLados)}{GalhoEsquerda.ObterNumero(i) ?? "/"}{espacos(qtdEspacosMeio)}{GalhoDireita.ObterNumero(i) ?? "\\"}\n";
+                qtdEspacosLado--;
+                arvore += $"{espacos(qtdEspacosLado)}/{espacos(qtdEspacosMeio)}\\\n";
+                qtdEspacosLado--;
+                qtdEspacosMeio += 2 + (GalhoDireita.ObterNumero(i) ?? " ").Length - (GalhoEsquerda.ObterNumero(i) ?? " ").Length;
+                arvore += $"{espacos(qtdEspacosLado)}{GalhoEsquerda.ObterNumero(i) ?? "/"}{espacos(qtdEspacosMeio)}{GalhoDireita.ObterNumero(i) ?? "\\"}\n";
                 qtdEspacosMeio += 2;
-                qtdEspacosLados -= 1;
             }
 
             return arvore;
 
-            static string espacos(int qtd) => new string(' ', qtd);
+            static string espacos(int qtd) => new string(' ', qtd > 0 ? qtd : 0);
         }
     }
 }
