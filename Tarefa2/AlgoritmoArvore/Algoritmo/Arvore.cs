@@ -38,8 +38,8 @@ namespace AlgoritmoArvore.Algoritmo
                 else if (i > posicaoRaiz) numerosDireita.Add(Numeros[i]);
             }
 
-            GalhoEsquerda = Galho.Criar(numerosEsquerda.ToArray(), GalhoLado.Esquerdo);
-            GalhoDireita = Galho.Criar(numerosDireita.ToArray(), GalhoLado.Direito);
+            GalhoEsquerda = Galho.Criar(numerosEsquerda.ToArray());
+            GalhoDireita = Galho.Criar(numerosDireita.ToArray());
 
             TamanhoMaiorGalho = GalhoEsquerda.Numeros.Length > GalhoDireita.Numeros.Length ? GalhoEsquerda.Numeros.Length : GalhoDireita.Numeros.Length;
         }
@@ -52,6 +52,17 @@ namespace AlgoritmoArvore.Algoritmo
             yield return "Galhos da Direita: " + GalhoDireita;
         }
 
+        /// <summary>
+        /// </summary>
+        /// <returns>Arvore com os galhos:
+        ///           6
+        ///         /   \
+        ///        3     5
+        ///       /       \
+        ///      2         0
+        ///     /           \
+        ///    1             \
+        /// </returns>
         public override string ToString()
         {
             int qtdEspacosLado = 3 * TamanhoMaiorGalho - 1;
@@ -71,7 +82,7 @@ namespace AlgoritmoArvore.Algoritmo
 
             return arvore;
 
-            static string espacos(int qtd) => new string(' ', qtd > 0 ? qtd : 0);
+            static string espacos(int qtd) => new string(' ', qtd);
         }
     }
 }
