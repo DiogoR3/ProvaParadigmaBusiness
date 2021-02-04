@@ -4,12 +4,12 @@ GO
 USE ProvaParadigma
 GO
 
+-- Criacao das tabelas
 CREATE TABLE Departamento (
 	Id INT IDENTITY PRIMARY KEY NOT NULL,
 	Nome VARCHAR(MAX)
 )
 
--- Criacao das tabelas
 CREATE TABLE Pessoa (
 	Id INT IDENTITY(1,1),
 	Nome VARCHAR(MAX),
