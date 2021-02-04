@@ -9,9 +9,9 @@
 
 ## Tarefa 2
 > Dado um array inteiro sem duplicidade, construa um algoritmo de uma árvore a partir das seguintes regras:
-•	A raiz da árvore deve ser o maior valor do array
-•	Os galhos da esquerda devem ser compostos somente por números à esquerda do valor raiz, na ordem decrescente
-•	Os galhos da direita devem ser compostos somente por número à direita do valor raiz, na ordem decrescente
+> - A raiz da árvore deve ser o maior valor do array
+> - Os galhos da esquerda devem ser compostos somente por números à esquerda do valor raiz, na ordem decrescente
+> - Os galhos da direita devem ser compostos somente por número à direita do valor raiz, na ordem decrescente
 
 ### Exemplo:
 ```sh
