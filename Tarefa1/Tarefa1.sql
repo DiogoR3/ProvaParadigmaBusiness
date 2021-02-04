@@ -26,10 +26,8 @@ INSERT INTO Pessoa VALUES ('Henry', '8000', 2)
 INSERT INTO Pessoa VALUES ('Sam', '6000', 2)
 INSERT INTO Pessoa VALUES ('Max', '9000', 1)
 
--- Select com join
-SELECT Dep.Nome AS Departamento, Pes.Nome AS Pessoa, Pes.Salario FROM Pessoa Pes
-JOIN Departamento Dep ON Dep.Id = Pes.DeptId
-
--- Select sem join
-SELECT Dep.Nome AS Departamento, Pes.Nome AS Pessoa, Pes.Salario FROM Pessoa Pes, Departamento Dep
-WHERE Pes.DeptId = Dep.Id
+-- Resposta
+SELECT Dep.Nome AS Departamento, Pessoa.Nome AS Pessoa, AuxPessoa.Salario FROM Pessoa 
+JOIN (SELECT MAX(Salario) Salario, DeptId FROM Pessoa GROUP BY DeptId) AuxPessoa 
+ON AuxPessoa.DeptId = Pessoa.DeptId AND Pessoa.Salario = AuxPessoa.Salario
+JOIN Departamento Dep ON Dep.Id = Pessoa.DeptId
