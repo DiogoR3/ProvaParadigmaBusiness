@@ -1,0 +1,6 @@
+# Pasta .vs da solucao
+.vs/
+
+# Pastas bin e obj do projeto
+AlgoritmoArvore/bin/
+AlgoritmoArvore/obj/
